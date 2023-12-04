@@ -5,13 +5,18 @@ import java.io.Serializable;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.fasterxml.jackson.core.sym.Name;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
 import jakarta.persistence.Table;
 import lombok.Data;
+
+@NamedQueries(name="User.findByEmailId" ,query = "select u from User u where u.email=:email")
 @Data
 @Entity
 @DynamicUpdate
