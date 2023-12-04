@@ -13,10 +13,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@NamedQueries(name="User.findByEmailId" ,query = "select u from User u where u.email=:email")
+//@NamedQueries({@NamedQuery(name="User.findByEmailId" ,query = "select u from User u where u.email=:email"
+@NamedQueries({
+    @NamedQuery(name = "User.findByEmailId", 
+    query = "select u from User u where u.email=:email") })
 @Data
 @Entity
 @DynamicUpdate
